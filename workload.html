@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Battery workload</title>
+<style>
+  body { margin: 0; font: 14px system-ui, sans-serif; background: #fff; color: #111; }
+  header { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  iframe { border: 0; width: 100%; height: calc(100vh - 40px); }
+</style>
+</head>
+<body>
+<header id="info">starting…</header>
+<iframe id="f"></iframe>
+<script>
+// The same light web browsing loop on both systems: a different public page
+// every 60 s. Open it full screen in the default
+// browser, brightness fixed, Wi-Fi on, nothing else running.
+const pages = [
+  "https://en.wikipedia.org/wiki/Special:Random",
+  "https://news.ycombinator.com/",
+  "https://en.wikipedia.org/wiki/Bicycle",
+  "https://en.wikipedia.org/wiki/Netherlands",
+  "https://en.wikipedia.org/wiki/Linux",
+  "https://text.npr.org/",
+];
+let i = 0;
+const started = Date.now();
+function next() {
+  document.getElementById("f").src = pages[i % pages.length];
+  const min = Math.round((Date.now() - started) / 60000);
+  document.getElementById("info").textContent =
+    `page ${i + 1}, running ${Math.floor(min / 60)}h ${min % 60}m`;
+  i++;
+}
+next();
+setInterval(next, 60000);
+</script>
+</body>
+</html>
