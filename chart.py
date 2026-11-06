@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Battery % and power draw over time, macOS vs Omarchy, from the battlog CSVs."""
+"""Battery % and power draw over time, macOS vs Omarchy (Asahi and aurora kernels), from the battlog CSVs."""
 import csv, sys
 import matplotlib
 matplotlib.use("Agg")
@@ -17,7 +17,8 @@ def load(*files):
     return h, pct, w
 
 runs = [("macOS 27", "#3b82f6", load("macos-run1.csv", "macos-run1b.csv")),
-        ("Omarchy (Asahi)", "#e5484d", load("omarchy-run2.csv"))]
+        ("Omarchy (Asahi kernel)", "#e5484d", load("omarchy-run2.csv")),
+        ("Omarchy (linux-aurora)", "#16a34a", load("omarchy-aurora-run1.csv"))]
 
 plt.rcParams.update({"font.size": 13, "font.family": "DejaVu Sans"})
 fig, (a1, a2) = plt.subplots(2, 1, figsize=(10, 7.5), sharex=True, gridspec_kw={"height_ratios": [2, 1]})

@@ -1,0 +1,10 @@
+date: 2026-11-05T17:09:27+01:00
+uname: 7.2.11-14-1-ARCH
+profile: balanced
+brightness: 100%
+omarchy: omarchy 4.5.0-1
+linux-aurora 7.2.11.aurora14-1
+m1n1-aurora 1.6.1.aurora22-1
+mesa-aurora 1:26.3.0_devel.20261031.231483.a1969111475-1
+chromium 156.0.8078.79-1
+hyprland 0.57.1-1

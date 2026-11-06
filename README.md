@@ -1,14 +1,14 @@
 # battery-test
 
-Same battery run on macOS and on Omarchy (Asahi Linux) on one MacBook Air M1.
+Same battery run on macOS and on Omarchy (Asahi kernel, then linux-aurora) on one MacBook Air M1.
 
-## Result (2026-10-23)
+## Result (2026-10-23, aurora run 2026-11-05)
 
-| | macOS 27.0.1 | Omarchy 4.5 (Asahi) |
-|---|---|---|
-| 100% to shutdown | **6 h 57 m** | **5 h 23 m** (-23%) |
-| average draw | **6.34 W** | **8.10 W** (+28%) |
-| energy drawn | 43.4 Wh | 43.6 Wh |
+| | macOS 27.0.1 | Omarchy 4.5 (Asahi kernel) | Omarchy 4.5 (linux-aurora) |
+|---|---|---|---|
+| 100% to shutdown | **6 h 57 m** | **5 h 23 m** (-23%) | **5 h 59 m** (-14%) |
+| average draw | **6.34 W** | **8.10 W** (+28%) | **7.22 W** (+14%) |
+| energy drawn | 43.4 Wh | 43.6 Wh | 43.2 Wh |
 
 ![battery % and watts over time](results/battery.png)
 

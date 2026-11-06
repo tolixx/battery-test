@@ -32,13 +32,27 @@ has no hypridle: the shell blanks the screen, which spoiled run 1 after 5 minute
 - **43.6 Wh** drawn (macOS: 43.4 Wh). The two runs read power from different sources
   (ioreg on macOS, power_now on Linux) and still agree on the energy, so the meters can be trusted.
 
+## Omarchy on linux-aurora, run 3 (2026-11-05)
+
+Same Air, same install (LUKS on), now Omarchy 4.5.0 on the aurora kernel `linux-aurora 7.2.11.aurora14-1`
+with `m1n1-aurora` and `mesa-aurora` (switched from linux-asahi the same afternoon, which also brought up
+the external display). Same settings as run 2: balanced profile, brightness 100%, Bluetooth off, no
+Docker, Chromium with workload.html, idle off. Versions in `sysinfo-aurora.txt`.
+
+- 100% at 17:09, last sample at 3% at 23:08 local: **5 h 59 m** (+36 min, +11% vs the Asahi kernel)
+- **7.22 W average** (median 7.19, 6.86 to 7.66), every hour 7.13 to 7.30 W: 7.26 / 7.13 / 7.26 / 7.30 / 7.16 / 7.22 W
+- **43.2 Wh** drawn, in line with the other runs
+- Not the only change since run 2: Omarchy 4.5.0rc1 → 4.5.0, Chromium 153 → 156, Hyprland 0.56 → 0.57.
+  The kernel, m1n1 and mesa are the big ones, but this run doesn't separate them.
+- The draw now moves with the page loads (6.9 to 7.6 W) like on macOS; on the Asahi kernel it sat at a flat ~8.1 W.
+
 ## Comparison
 
-| | macOS 27.0.1 | Omarchy (Asahi) |
-|---|---|---|
-| 100% to off | 6 h 57 m | 5 h 23 m (-23%) |
-| average draw | 6.34 W | 8.10 W (+28%) |
-| energy | 43.4 Wh | 43.6 Wh |
+| | macOS 27.0.1 | Omarchy (Asahi kernel) | Omarchy (linux-aurora) |
+|---|---|---|---|
+| 100% to off | 6 h 57 m | 5 h 23 m (-23%) | 5 h 59 m (-14%) |
+| average draw | 6.34 W | 8.10 W (+28%) | 7.22 W (+14%) |
+| energy | 43.4 Wh | 43.6 Wh | 43.2 Wh |
 
 macOS sits around 6.1-6.3 W and spikes on page loads; Omarchy stays flat at ~8 W, which
 points at a higher floor (display/GPU or idle states) rather than the browser work itself.
